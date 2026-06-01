@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuadBot – Arduino Quadruped Robot | TechSmiths</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== PROGRESS BAR ========== -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+    <div class="nav-brand">TECHSMITHS</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+        <ul>
+            <li><a href="#home"     class="nav-link active">HOME</a></li>
+            <li><a href="#features" class="nav-link">FEATURES</a></li>
+            <li><a href="#specs"    class="nav-link">SPECS</a></li>
+            <li><a href="#gallery"  class="nav-link">GALLERY</a></li>
+            <li><a href="#reviews"  class="nav-link">REVIEWS</a></li>
+            <li><a href="#contact"  class="nav-link">CONTACT</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+    <div class="hero-bg-anim">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
+    <div class="hero-content">
+        <span class="hero-badge reveal-hero">
+            <i class="fa-solid fa-microchip"></i>
+            COLLEGE PROJECT · ARDUINO UNO · 2025
+        </span>
+
+        <h1 class="reveal-hero delay-1">
+            QuadBot<br>
+            <span class="gradient-text">Spider Robot</span>
+        </h1>
+
+        <p class="hero-desc reveal-hero delay-2">
+            A beginner-level <strong>Arduino-powered quadruped robot</strong> that mimics the walking gait of a spider.
+            Built with servo motors, an ultrasonic sensor, and custom 3D-printed legs —
+            this project explores the intersection of mechanics, electronics, and code.
+        </p>
+
+        <div class="hero-stats reveal-hero delay-3">
+            <div class="stat">
+                <span class="stat-num">4</span>
+                <span class="stat-label">Legs</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">8</span>
+                <span class="stat-label">Servos</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">5V</span>
+                <span class="stat-label">Power</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+                <span class="stat-num">C++</span>
+                <span class="stat-label">Language</span>
+            </div>
+        </div>
+
+        <div class="hero-ctas reveal-hero delay-4">
+            <a href="#features" class="btn-primary">
+                <i class="fa-solid fa-bolt"></i> EXPLORE PROJECT
+            </a>
+            <a href="#specs" class="btn-secondary">
+                <i class="fa-solid fa-list"></i> VIEW SPECS
+            </a>
+        </div>
+    </div>
+
+    <!-- Animated Arduino / circuit board visual -->
+    <div class="hero-visual reveal-hero delay-2">
+        <div class="vis-card">
+            <div class="vis-header">
+                <span class="vis-dot red"></span>
+                <span class="vis-dot yellow"></span>
+                <span class="vis-dot green"></span>
+                <span class="vis-title">quadbot_main.ino</span>
+            </div>
+            <div class="vis-code">
+                <div class="code-line"><span class="c-kw">#include</span> <span class="c-str">&lt;Servo.h&gt;</span></div>
+                <div class="code-line"><span class="c-kw">#define</span> <span class="c-var">LEGS</span> <span class="c-num">4</span></div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line"><span class="c-type">Servo</span> <span class="c-var">hip</span>[<span class="c-num">4</span>], <span class="c-var">knee</span>[<span class="c-num">4</span>];</div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line"><span class="c-type">void</span> <span class="c-fn">setup</span>() {</div>
+                <div class="code-line">&nbsp;&nbsp;<span class="c-fn">attachServos</span>();</div>
+                <div class="code-line">&nbsp;&nbsp;<span class="c-var">Serial</span>.<span class="c-fn">begin</span>(<span class="c-num">9600</span>);</div>
+                <div class="code-line">}</div>
+                <div class="code-line">&nbsp;</div>
+                <div class="code-line"><span class="c-type">void</span> <span class="c-fn">loop</span>() {</div>
+                <div class="code-line">&nbsp;&nbsp;<span class="c-fn">walkForward</span>();</div>
+                <div class="code-line">&nbsp;&nbsp;<span class="c-fn">checkObstacle</span>();</div>
+                <div class="code-line"><span class="c-cursor">}</span><span class="cursor-blink">|</span></div>
+            </div>
+        </div>
+
+        <!-- component badges floating around -->
+        <div class="vis-badge badge-uno">
+            <i class="fa-solid fa-microchip"></i> Arduino Uno
+        </div>
+        <div class="vis-badge badge-servo">
+            <i class="fa-solid fa-gears"></i> SG90 ×8
+        </div>
+        <div class="vis-badge badge-sensor">
+            <i class="fa-solid fa-wifi"></i> HC-SR04
+        </div>
+        <div class="vis-badge badge-bt">
+            <i class="fa-brands fa-bluetooth-b"></i> HC-05
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== FEATURES ========== -->
+<section class="features" id="features">
+    <div class="section-header reveal">
+        <span class="section-tag">// CAPABILITIES</span>
+        <h2>Key Features</h2>
+        <p>What makes QuadBot an exciting beginner robotics project</p>
+        <div class="divider"></div>
+    </div>
+
+    <div class="features-grid">
+        <div class="feat-card reveal">
+            <div class="feat-num">01</div>
+            <div class="feat-icon"><i class="fa-solid fa-person-walking"></i></div>
+            <h3>4-Legged Walking Gait</h3>
+            <p>QuadBot uses a <strong>tripod or wave gait algorithm</strong> to move forward, backward, and turn. Each leg pair alternates to keep the robot balanced — just like a real spider or insect moves across terrain.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-num">02</div>
+            <div class="feat-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+            <h3>Obstacle Detection</h3>
+            <p>An <strong>HC-SR04 ultrasonic sensor</strong> mounted on the front detects objects up to 400 cm away. When an obstacle is within 15 cm, QuadBot stops and turns — basic autonomous navigation for beginners.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-num">03</div>
+            <div class="feat-icon"><i class="fa-solid fa-sliders"></i></div>
+            <h3>8 Servo Motor Control</h3>
+            <p>Two <strong>SG90 servo motors per leg</strong> control the hip and knee joints. Controlled via the Arduino Servo library, each joint angle is mapped with precision to produce smooth, coordinated movement.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-num">04</div>
+            <div class="feat-icon"><i class="fa-solid fa-battery-three-quarters"></i></div>
+            <h3>Portable Power Supply</h3>
+            <p>Powered by a <strong>7.4V LiPo battery</strong> regulated to 5V for servos and 3.3V for the Arduino. The compact power circuit ensures stable voltage even when all 8 servos are active simultaneously.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-num">05</div>
+            <div class="feat-icon"><i class="fa-solid fa-print"></i></div>
+            <h3>3D-Printed Chassis</h3>
+            <p>The entire body frame and leg links were designed in <strong>Tinkercad</strong> and printed in PLA plastic. Lightweight yet strong, the chassis took roughly 6 hours to print at 20% infill density.</p>
+        </div>
+        <div class="feat-card reveal">
+            <div class="feat-num">06</div>
+            <div class="feat-icon"><i class="fa-brands fa-bluetooth-b"></i></div>
+            <h3>Bluetooth Remote Control</h3>
+            <p>A <strong>HC-05 Bluetooth module</strong> lets you control QuadBot wirelessly from your phone using a simple serial app. Send characters (F/B/L/R/S) to command forward, back, turn, and stop actions.</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== SPECS ========== -->
+<section class="specs" id="specs">
+    <div class="section-header reveal">
+        <span class="section-tag">// TECHNICAL DETAILS</span>
+        <h2>Project Specifications</h2>
+        <p>Hardware and software details for the QuadBot build</p>
+        <div class="divider"></div>
+    </div>
+
+    <div class="specs-layout">
+        <div class="specs-table reveal">
+            <div class="specs-group">
+                <h4><i class="fa-solid fa-cpu"></i> Microcontroller</h4>
+                <div class="spec-row"><span>Board</span><span>Arduino Uno R3</span></div>
+                <div class="spec-row"><span>Clock Speed</span><span>16 MHz</span></div>
+                <div class="spec-row"><span>Flash Memory</span><span>32 KB</span></div>
+                <div class="spec-row"><span>Language</span><span>C++ / Arduino IDE</span></div>
+            </div>
+            <div class="specs-group">
+                <h4><i class="fa-solid fa-gears"></i> Actuators</h4>
+                <div class="spec-row"><span>Servo Model</span><span>SG90 Micro Servo</span></div>
+                <div class="spec-row"><span>Total Servos</span><span>8 (2 per leg)</span></div>
+                <div class="spec-row"><span>Torque</span><span>1.8 kg·cm</span></div>
+                <div class="spec-row"><span>Range</span><span>0° – 180°</span></div>
+            </div>
+            <div class="specs-group">
+                <h4><i class="fa-solid fa-plug"></i> Power</h4>
+                <div class="spec-row"><span>Battery</span><span>7.4V 1200mAh LiPo</span></div>
+                <div class="spec-row"><span>Servo Voltage</span><span>5V (regulated)</span></div>
+                <div class="spec-row"><span>Runtime</span><span>~45 minutes</span></div>
+                <div class="spec-row"><span>Charging</span><span>USB-C balance charger</span></div>
+            </div>
+            <div class="specs-group">
+                <h4><i class="fa-solid fa-wifi"></i> Sensors & Comms</h4>
+                <div class="spec-row"><span>Distance Sensor</span><span>HC-SR04 Ultrasonic</span></div>
+                <div class="spec-row"><span>Range</span><span>2 cm – 400 cm</span></div>
+                <div class="spec-row"><span>Bluetooth</span><span>HC-05 Module</span></div>
+                <div class="spec-row"><span>Protocol</span><span>UART Serial @ 9600 baud</span></div>
+            </div>
+        </div>
+
+        <div class="specs-side reveal">
+            <div class="build-card">
+                <h4><i class="fa-solid fa-screwdriver-wrench"></i> Build Details</h4>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> Total build time: ~3 weekends</li>
+                    <li><i class="fa-solid fa-check"></i> Estimated cost: ₹1,200 – ₹1,800</li>
+                    <li><i class="fa-solid fa-check"></i> Chassis: PLA 3D-printed parts</li>
+                    <li><i class="fa-solid fa-check"></i> Wiring: 26 AWG flexible cables</li>
+                    <li><i class="fa-solid fa-check"></i> Assembly: Screws + hot glue</li>
+                    <li><i class="fa-solid fa-check"></i> Weight: ~280 grams total</li>
+                    <li><i class="fa-solid fa-check"></i> Size: 18 cm × 14 cm × 8 cm</li>
+                </ul>
+            </div>
+
+            <div class="components-card">
+                <h4><i class="fa-solid fa-boxes-stacked"></i> Components List</h4>
+                <div class="comp-item"><span class="comp-name">Arduino Uno R3</span><span class="comp-qty">×1</span></div>
+                <div class="comp-item"><span class="comp-name">SG90 Servo Motor</span><span class="comp-qty">×8</span></div>
+                <div class="comp-item"><span class="comp-name">HC-SR04 Sensor</span><span class="comp-qty">×1</span></div>
+                <div class="comp-item"><span class="comp-name">HC-05 Bluetooth</span><span class="comp-qty">×1</span></div>
+                <div class="comp-item"><span class="comp-name">LiPo Battery</span><span class="comp-qty">×1</span></div>
+                <div class="comp-item"><span class="comp-name">Voltage Regulator</span><span class="comp-qty">×2</span></div>
+                <div class="comp-item"><span class="comp-name">Breadboard/PCB</span><span class="comp-qty">×1</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== GALLERY ========== -->
+<section class="gallery" id="gallery">
+    <div class="section-header reveal">
+        <span class="section-tag">// BUILD PROGRESS</span>
+        <h2>Project Gallery</h2>
+        <p>Step-by-step photos from planning to final assembly</p>
+        <div class="divider"></div>
+    </div>
+
+    <div class="gallery-grid">
+        <div class="gal-card reveal">
+            <div class="gal-img-wrap">
+                <img src="html-tabs-ui-screenshot5.png" alt="Circuit Wiring"
+                     onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fa-solid fa-diagram-project\'></i><span>Circuit Diagram</span></div>'">
+                <div class="gal-overlay"><span>VIEW</span></div>
+            </div>
+            <div class="gal-body">
+                <span class="gal-tag">ELECTRONICS</span>
+                <h3>Circuit Wiring & Breadboard</h3>
+                <p>All 8 servo signal wires connected to Arduino PWM pins (3, 5, 6, 9, 10, 11) through a custom breadboard layout. The HC-SR04 trigger and echo pins are wired to digital pins 7 and 8.</p>
+            </div>
+        </div>
+        <div class="gal-card reveal">
+            <div class="gal-img-wrap">
+                <img src="html-tabs-ui-screenshot5.png" alt="3D Printed Parts"
+                     onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fa-solid fa-print\'></i><span>3D Printed Chassis</span></div>'">
+                <div class="gal-overlay"><span>VIEW</span></div>
+            </div>
+            <div class="gal-body">
+                <span class="gal-tag">MECHANICAL</span>
+                <h3>3D Printed Chassis & Legs</h3>
+                <p>The body and leg links were designed in Tinkercad and sliced using Ultimaker Cura. Printed in white PLA at 0.2mm layer height, the parts required light sanding and assembly with M2 screws.</p>
+            </div>
+        </div>
+        <div class="gal-card reveal">
+            <div class="gal-img-wrap">
+                <img src="html-tabs-ui-screenshot5.png" alt="Final Assembly"
+                     onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><i class=\'fa-solid fa-robot\'></i><span>Final Assembly</span></div>'">
+                <div class="gal-overlay"><span>VIEW</span></div>
+            </div>
+            <div class="gal-body">
+                <span class="gal-tag">FINAL BUILD</span>
+                <h3>Assembled QuadBot — Ready to Walk</h3>
+                <p>The completed robot with all components mounted, wiring managed with zip ties, and the Arduino loaded with the walking gait code. First successful walk achieved on Day 18 of the project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== REVIEWS ========== -->
+<section class="reviews" id="reviews">
+    <div class="section-header reveal">
+        <span class="section-tag">// FEEDBACK</span>
+        <h2>What People Said</h2>
+        <p>Reactions from our professor, peers, and the college tech fest audience</p>
+        <div class="divider"></div>
+    </div>
+
+    <div class="reviews-grid">
+        <div class="review-card reveal">
+            <div class="review-top">
+                <div class="avatar-placeholder"><i class="fa-solid fa-user-tie"></i></div>
+                <div class="review-meta">
+                    <h3>Prof. R. Sharma</h3>
+                    <span class="review-role">Project Supervisor · ECE Dept.</span>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                "Impressive work for a first-year team. The servo coordination and gait algorithm showed a solid understanding of kinematics. The Bluetooth control was a great addition — it really elevated the demo on presentation day."
+            </p>
+        </div>
+
+        <div class="review-card reveal">
+            <div class="review-top">
+                <div class="avatar-placeholder"><i class="fa-solid fa-user-graduate"></i></div>
+                <div class="review-meta">
+                    <h3>Arjun M.</h3>
+                    <span class="review-role">3rd Year Peer · Robotics Club</span>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <p class="review-text">
+                "For a beginner project, this is really clean. I've seen seniors struggle to get all 4 legs in sync — you guys nailed it. The 3D printed frame is well-designed too. Definitely submit this to TechFest next semester!"
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ========== CONTACT / FOOTER ========== -->
+<footer class="contact" id="contact">
+    <div class="contact-inner">
+        <div class="contact-brand reveal">
+            <div class="footer-logo">TECHSMITHS</div>
+            <p>We are a team of first-year engineering students from the Electronics & Communication department. QuadBot is our mini-project submission for the 2024–25 academic year. We hope it inspires other beginners to explore robotics!</p>
+            <div class="social-icons">
+                <a href="#" class="social-btn" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" class="social-btn" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+                <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+            </div>
+        </div>
+
+        <div class="contact-links reveal">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home"><i class="fa-solid fa-chevron-right"></i> Home</a></li>
+                <li><a href="#features"><i class="fa-solid fa-chevron-right"></i> Features</a></li>
+                <li><a href="#specs"><i class="fa-solid fa-chevron-right"></i> Specifications</a></li>
+                <li><a href="#gallery"><i class="fa-solid fa-chevron-right"></i> Gallery</a></li>
+                <li><a href="#reviews"><i class="fa-solid fa-chevron-right"></i> Reviews</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-info reveal">
+            <h4>Project Info</h4>
+            <div class="info-row"><i class="fa-solid fa-school"></i><span>Engineering College, Asansol</span></div>
+            <div class="info-row"><i class="fa-solid fa-graduation-cap"></i><span>Dept. of ECE, 1st Year</span></div>
+            <div class="info-row"><i class="fa-solid fa-calendar"></i><span>Academic Year 2024–25</span></div>
+            <div class="info-row"><i class="fa-solid fa-code"></i><span>Arduino IDE · C++</span></div>
+            <div class="info-row"><i class="fa-solid fa-envelope"></i><span>techsmiths@college.edu</span></div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <span>&copy; 2025 TechSmiths &nbsp;·&nbsp; QuadBot Project &nbsp;·&nbsp; All Rights Reserved</span>
+    </div>
+</footer>
+
+
+<script src="main.js" defer></script>
+</body>
+</html>
